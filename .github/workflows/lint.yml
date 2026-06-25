@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: Checkout/Clone the code
         uses: actions/checkout@v7
+# this step will install linter tool to check phython code
+      - name: Install Linter
+        run: pip install ruff
