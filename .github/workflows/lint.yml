@@ -4,10 +4,8 @@
 name: Auto Linter
 on:
   push:
-    paths: "*.py"
-  workflow_dispatch:
-    
-
+    paths:
+      - "**/*.py"
 jobs:
   code:
     runs-on: ubuntu-latest
