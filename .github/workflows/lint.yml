@@ -1,0 +1,14 @@
+# what is the goal of your workflow
+# Goal: whenever someone changes the python code, 
+# the linter will check if the syntax, format, intendation(Linting) is correct or not
+name: Auto Linter
+on:
+  push:
+    paths: "*.py"
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout/Clone the code
+        uses: actions/checkout@v7
