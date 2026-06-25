@@ -1,0 +1,33 @@
+name: Auto Linter
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.py'
+  workflow_dispatch:
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Debug - list files
+        run: |
+          echo "Listing repo files:"
+          ls -R
+
+      - name: Run Linter
+        run: ruff check .
